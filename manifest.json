@@ -22,7 +22,8 @@
   "permissions": [
     "https://zno.osvita.ua/*",
     "storage",
-    "activeTab"
+    "activeTab",
+    "declarativeContent"
   ],
   "content_scripts": [
     {
