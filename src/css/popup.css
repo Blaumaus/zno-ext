@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  padding-top: 10px;
+  height: 100px;
+  width: 350px;
+}
+
+p {
+  font-family: "Century Gothic", Helvetica, sans-serif;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#buttons { text-align: center }
+
+#buttons > span {
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  width: 40%;
+  height: 45px;
+  transition: all .3s ease;
+}
+
+#show {
+  background-color: #41a88a;
+  margin-right: 5%;
+}
+
+#hide { background-color: #d02537 }
+
+#show:hover { background-color: #34866f }
+#hide:hover { background-color: #a31624 }
