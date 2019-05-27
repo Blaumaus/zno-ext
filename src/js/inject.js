@@ -5,6 +5,12 @@ window.onload = () => {
 	})
 }
 
+chrome.storage.onChanged.addListener((changes, namespace) => {
+	chrome.storage.sync.get('show', (data) => {
+		act(data.show)
+	})
+})
+
 const showComments = () => {
 	const l = document.querySelectorAll('.explanation')
 	l.forEach(e => e.style.display = 'block')
@@ -15,10 +21,7 @@ const hideComments = () => {
 	l.forEach(e => e.style.display = 'none')
 }
 
-// message listener for background
-chrome.runtime.onMessage.addListener(function (req, sender, res) {
-	if (req.command === 'show') showComments()
+const act = a => {
+	if (a) showComments()
 	else hideComments()
-
-	res({ result: "success" })
-})
+}
