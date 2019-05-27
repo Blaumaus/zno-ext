@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "description": "Це розширення створене для відкриття доступу до коментарів до завдань на сайті zno.osvita.ua",
   "author": "ookldev",
-  "homepage_url": "https://github.com/ookldev",
+  "homepage_url": "https://github.com/ookldev/zno-ext",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -22,8 +22,7 @@
   "permissions": [
     "https://zno.osvita.ua/*",
     "storage",
-    "activeTab",
-    "declarativeContent"
+    "activeTab"
   ],
   "content_scripts": [
     {
