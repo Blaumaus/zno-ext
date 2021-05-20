@@ -1,27 +1,31 @@
-window.onload = () => {
-	chrome.storage.sync.get('show', (data) => {
-		if (data.show) showComments()
-		else hideComments()
-	})
+if (!document.referrer?.match(/zno\.osvita\.ua/g)) {
+	window.location.replace(location.href)
 }
 
-chrome.storage.onChanged.addListener((changes, namespace) => {
-	chrome.storage.sync.get('show', (data) => {
-		act(data.show)
-	})
+chrome.storage.onChanged.addListener(changes => {
+	const { show } = changes
+
+	if (typeof show?.newValue === 'boolean') {
+		act(show.newValue)
+	}
 })
 
 const showComments = () => {
-	const l = document.querySelectorAll('.explanation')
-	l.forEach(e => e.style.display = 'block')
+	const list = document.querySelectorAll('.explanation')
+
+	for (let i = 0; i < list.length; ++i) {
+		list[i].style = 'display: static'
+	}
 }
 
 const hideComments = () => {
-	const l = document.querySelectorAll('.explanation')
-	l.forEach(e => e.style.display = 'none')
+	const list = document.querySelectorAll('.explanation')
+
+	for (let i = 0; i < list.length; ++i) {
+		list[i].style = 'display: none'
+	}
 }
 
 const act = a => {
-	if (a) showComments()
-	else hideComments()
+	a ? showComments() : hideComments()
 }
